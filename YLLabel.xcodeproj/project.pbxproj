@@ -24,6 +24,7 @@
 		1A64B89E24FDF238001ACC40 /* YLReaderPageBGController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A64B89D24FDF238001ACC40 /* YLReaderPageBGController.m */; };
 		1A7A0A8624ECB980008D2CDD /* YLCoreText.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7A0A8224ECB980008D2CDD /* YLCoreText.m */; };
 		1A7A0A8A24ECC606008D2CDD /* YLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7A0A8924ECC606008D2CDD /* YLModel.m */; };
+		36C22F9EEBC1E875669D0CB8 /* Pods_YLLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F62777E04D719990E9B6F68 /* Pods_YLLabel.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,9 @@
 		1A7A0A8424ECB980008D2CDD /* YLCoreText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLCoreText.h; sourceTree = "<group>"; };
 		1A7A0A8824ECC606008D2CDD /* YLModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLModel.h; sourceTree = "<group>"; };
 		1A7A0A8924ECC606008D2CDD /* YLModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLModel.m; sourceTree = "<group>"; };
+		6F62777E04D719990E9B6F68 /* Pods_YLLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YLLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0ADA8E6154C26C92D5896B7 /* Pods-YLLabel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLLabel.release.xcconfig"; path = "Target Support Files/Pods-YLLabel/Pods-YLLabel.release.xcconfig"; sourceTree = "<group>"; };
+		DF1EAD4062382CA282A74B2D /* Pods-YLLabel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLLabel.debug.xcconfig"; path = "Target Support Files/Pods-YLLabel/Pods-YLLabel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36C22F9EEBC1E875669D0CB8 /* Pods_YLLabel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,8 @@
 			children = (
 				1A1555CB24EB74D8006F9F80 /* YLLabel */,
 				1A1555CA24EB74D8006F9F80 /* Products */,
+				1C422764B045B945F67C2A7A /* Pods */,
+				57C35FE6231ED024AEEAEC15 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +167,24 @@
 			path = ToolsGroup;
 			sourceTree = "<group>";
 		};
+		1C422764B045B945F67C2A7A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF1EAD4062382CA282A74B2D /* Pods-YLLabel.debug.xcconfig */,
+				D0ADA8E6154C26C92D5896B7 /* Pods-YLLabel.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		57C35FE6231ED024AEEAEC15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F62777E04D719990E9B6F68 /* Pods_YLLabel.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,9 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A1555E224EB74D9006F9F80 /* Build configuration list for PBXNativeTarget "YLLabel" */;
 			buildPhases = (
+				EEBD1747AA40AACDD36F105A /* [CP] Check Pods Manifest.lock */,
 				1A1555C524EB74D8006F9F80 /* Sources */,
 				1A1555C624EB74D8006F9F80 /* Frameworks */,
 				1A1555C724EB74D8006F9F80 /* Resources */,
+				70CDF9A2D157E8D6E8B21FB0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,6 +251,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		70CDF9A2D157E8D6E8B21FB0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YLLabel/Pods-YLLabel-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YLLabel/Pods-YLLabel-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YLLabel/Pods-YLLabel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEBD1747AA40AACDD36F105A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YLLabel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1A1555C524EB74D8006F9F80 /* Sources */ = {
@@ -373,10 +442,11 @@
 		};
 		1A1555E324EB74D9006F9F80 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF1EAD4062382CA282A74B2D /* Pods-YLLabel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M2NC8A2MPU;
+				DEVELOPMENT_TEAM = KLZ6FTC7C7;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${SRCROOT}/YLLabel/PrefixHeader.pch";
 				INFOPLIST_FILE = YLLabel/Info.plist;
@@ -385,7 +455,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "---.YLLabel";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzj.test2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -393,10 +463,11 @@
 		};
 		1A1555E424EB74D9006F9F80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0ADA8E6154C26C92D5896B7 /* Pods-YLLabel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M2NC8A2MPU;
+				DEVELOPMENT_TEAM = KLZ6FTC7C7;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${SRCROOT}/YLLabel/PrefixHeader.pch";
 				INFOPLIST_FILE = YLLabel/Info.plist;
@@ -405,7 +476,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "---.YLLabel";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzj.test2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
