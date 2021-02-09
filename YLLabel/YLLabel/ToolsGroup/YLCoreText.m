@@ -413,10 +413,14 @@ CGSize getSizeWithCTLine_1(CTLineRef lineRef){
     return resultArray;
 }
 
+#pragma mark 图片高度不能超过可展示区域最大高度高度，否则会导致死循环
 ///上行高度
 static CGFloat ascentCallback(void *ref){
     YLAttachment *model = (__bridge YLAttachment *)ref;
-    return model.imageFrame.size.height;
+    NSLog(@"ascentCallback:%lf",model.imageFrame.size.height);
+    CGFloat height = model.imageFrame.size.height;
+    CGFloat kScreenHeight = UIScreen.mainScreen.bounds.size.height - 64 - 100;
+    return height > kScreenHeight ? kScreenHeight : height;
 }
 
 ///下行高度
