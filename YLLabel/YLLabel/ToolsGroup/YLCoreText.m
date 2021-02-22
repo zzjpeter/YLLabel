@@ -419,8 +419,8 @@ static CGFloat ascentCallback(void *ref){
     YLAttachment *model = (__bridge YLAttachment *)ref;
     NSLog(@"ascentCallback:%lf",model.imageFrame.size.height);
     CGFloat height = model.imageFrame.size.height;
-    CGFloat kScreenHeight = UIScreen.mainScreen.bounds.size.height - 64 - 100;
-    return height > kScreenHeight ? kScreenHeight : height;
+    CGFloat screenHeight = UIScreen.mainScreen.bounds.size.height - 64 - 100;
+    return height > screenHeight ? screenHeight : height;
 }
 
 ///下行高度
@@ -486,6 +486,30 @@ static CGFloat widthCallback(void *ref){
     model.url = url;
     model.image = image;
     model.imageFrame = CGRectMake(0, 0, imageShowSize.width, imageShowSize.height);
+    
+    //注意：此处返回的富文本，最主要的作用是占位！
+    //为图片的绘制留下空白区域
+    CTRunDelegateCallbacks callbacks;
+    memset(&callbacks, 0, sizeof(CTRunDelegateCallbacks));
+    callbacks.version = kCTRunDelegateVersion1;//设置回调版本，默认这个
+    callbacks.getAscent = ascentCallback;//上行高度
+    callbacks.getDescent = descentCallback;//下行高度
+    callbacks.getWidth = widthCallback;//图片宽度
+    CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, (__bridge void *)model);
+    
+    //使用0xFFFC作为空白占位符
+    unichar objectReplacementChar = 0xFFFC;
+    NSString *content = [NSString stringWithCharacters:&objectReplacementChar length:1];
+    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:content attributes:@{kYLAttachmentAttributeName:model}];
+    CFAttributedStringSetAttribute((CFMutableAttributedStringRef)placeholder, CFRangeMake(0, 1), kCTRunDelegateAttributeName, delegate);
+    CFRelease(delegate);
+    return placeholder;
+}
+
++ (NSAttributedString *)parsePlaceholderRectDrawSize:(CGSize)drawSize{
+
+    YLAttachment *model = [[YLAttachment alloc]init];
+    model.imageFrame = CGRectMake(0, 0, drawSize.width, drawSize.height);
     
     //注意：此处返回的富文本，最主要的作用是占位！
     //为图片的绘制留下空白区域

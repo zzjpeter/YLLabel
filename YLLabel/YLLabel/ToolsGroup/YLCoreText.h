@@ -118,6 +118,11 @@ CGSize getSizeWithCTLine(CTLineRef lineRef);
  */
 + (NSAttributedString *)parseImageFromeTextWithURL:(NSString *)url drawSize:(CGSize)drawSize;
 
+/** 将占位方框[即预留的空白区域]处理为 CoreText
+ * @param drawSize 画布的尺寸，占位方框的宽高不能超出 drawSize
+ */
++ (NSAttributedString *)parsePlaceholderRectDrawSize:(CGSize)drawSize;
+
 @end
 
 
